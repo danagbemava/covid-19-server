@@ -7,8 +7,6 @@ const xml = require('xml');
 const estimator = require('../utils/estimator');
 
 router.post('/', (req, res) => {
-        console.log(req);
-
         const data = req.body;
 
         // eslint-disable-next-line no-console
@@ -20,10 +18,7 @@ router.post('/', (req, res) => {
         res.send(response);
     })
     .post('/json', (req, res) => {
-        console.log(req);
-
         const data = req.body;
-
 
         // eslint-disable-next-line no-console
         console.log(data);
