@@ -9,12 +9,7 @@ const estimator = require('../utils/estimator');
 router.post('/', (req, res) => {
         console.log(req);
 
-        const {
-            data
-        } = req;
-
-
-
+        const data = req.body;
 
         // eslint-disable-next-line no-console
         console.log(data);
@@ -25,9 +20,9 @@ router.post('/', (req, res) => {
         res.send(response);
     })
     .post('/json', (req, res) => {
-        const {
-            data
-        } = req.body;
+        console.log(req);
+
+        const data = req.body;
 
 
         // eslint-disable-next-line no-console
@@ -39,9 +34,7 @@ router.post('/', (req, res) => {
         res.send(response);
     })
     .post('/xml', (req, res) => {
-        const {
-            data
-        } = req.body;
+        const data = req.body;
 
         // eslint-disable-next-line no-console
         const response = estimator(data);
