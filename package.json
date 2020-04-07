@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for Andela SDG Assessment project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Agbemava (danagbemava)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "xml": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
