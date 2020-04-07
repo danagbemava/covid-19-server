@@ -9,7 +9,9 @@ const estimator = require('../utils/estimator');
 router.post('/', (req, res) => {
         const {
             data
-        } = req.body;
+        } = req;
+
+        console.log(req);
 
 
         // eslint-disable-next-line no-console
