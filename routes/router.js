@@ -11,10 +11,7 @@ const xmlBuilder = require('xmlbuilder');
 router.post('/', (req, res) => {
         const data = req.body;
 
-        // eslint-disable-next-line no-console
-        console.log(data);
 
-        // eslint-disable-next-line no-console
         const response = estimator(data);
 
         res.send(response);
@@ -22,10 +19,7 @@ router.post('/', (req, res) => {
     .post('/json', (req, res) => {
         const data = req.body;
 
-        // eslint-disable-next-line no-console
-        console.log(data);
 
-        // eslint-disable-next-line no-console
         const response = estimator(data);
 
         res.send(response);
@@ -33,7 +27,6 @@ router.post('/', (req, res) => {
     .post('/xml', (req, res) => {
         const data = req.body;
 
-        // eslint-disable-next-line no-console
         const response = estimator(data);
 
         res.setHeader('Content-Type', 'application/xml');
@@ -43,8 +36,6 @@ router.post('/', (req, res) => {
         }).end({
             pretty: true
         });
-
-        console.log(doc);
 
         res.send(doc);
     });

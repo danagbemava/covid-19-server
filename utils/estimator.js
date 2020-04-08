@@ -35,6 +35,8 @@ const calculateImpact = (data) => {
 
     const impact = {};
 
+    console.log(region);
+
     impact.currentlyInfected = reportedCases * 10;
 
     const infectionRate = Math.trunc(getNumberOfDays(periodType, timeToElapse) / 3);
