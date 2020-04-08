@@ -4,8 +4,10 @@ const convertWeeksToDays = (weeks) => weeks * 7;
 const getNumberOfDays = (periodType, timeToElapse) => {
     switch (periodType) {
         case 'months':
+        case 'month':
             return convertMonthsToDays(timeToElapse);
         case 'weeks':
+        case 'week':
             return convertWeeksToDays(timeToElapse);
         default:
             return timeToElapse;
@@ -34,8 +36,6 @@ const calculateImpact = (data) => {
     } = data;
 
     const impact = {};
-
-    console.log(region);
 
     impact.currentlyInfected = reportedCases * 10;
 
@@ -77,7 +77,9 @@ const calculateSevereImpact = (data) => {
 
     severeImpact.currentlyInfected = reportedCases * 50;
 
-    const infectionRate = Math.trunc(getNumberOfDays(periodType, timeToElapse) / 3);
+    const infectionRate = parseInt((getNumberOfDays(periodType, timeToElapse) / 3).toFixed(0), 10);
+
+    console.log(`${infectionRate}: ${getNumberOfDays(periodType, timeToElapse)/3}`);
 
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * (2 ** infectionRate);
 

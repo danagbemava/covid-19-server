@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
         res.setHeader('Content-Type', 'application/xml');
 
         const doc = xmlBuilder.create({
-            estimator: response
+            response
         }).end({
             pretty: true
         });
