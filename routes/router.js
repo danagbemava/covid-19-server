@@ -6,6 +6,8 @@ const xml = require('xml');
 
 const estimator = require('../utils/estimator');
 
+const xmlBuilder = require('xmlbuilder');
+
 router.post('/', (req, res) => {
         const data = req.body;
 
@@ -35,7 +37,16 @@ router.post('/', (req, res) => {
         const response = estimator(data);
 
         res.setHeader('Content-Type', 'application/xml');
-        res.send(xml(response));
+
+        const doc = xmlBuilder.create({
+            estimator: response
+        }).end({
+            pretty: true
+        });
+
+        console.log(doc);
+
+        res.send(doc);
     });
 // .get('/logs', (req, res) => {
 
