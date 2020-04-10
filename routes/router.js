@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
 
         console.log(logData);
 
-        res.send(logData);
+        res.send(JSON.stringify(logData));
     });
 
 
