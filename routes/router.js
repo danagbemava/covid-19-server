@@ -53,9 +53,11 @@ router.post('/', (req, res) => {
     .get('/logs', (req, res) => {
         const logData = fs.readFileSync(path.join(__dirname, '..', 'log.txt'), 'utf-8');
 
-        console.log(logData);
+        console.log(typeof logData);
 
-        res.send(JSON.stringify(logData));
+        // console.log(typeof (JSON.stringify(logData)));
+
+        res.send(logData);
     });
 
 
