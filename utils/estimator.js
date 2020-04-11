@@ -4,10 +4,8 @@ const convertWeeksToDays = (weeks) => weeks * 7;
 const getNumberOfDays = (periodType, timeToElapse) => {
     switch (periodType) {
         case 'months':
-        case 'month':
             return convertMonthsToDays(timeToElapse);
         case 'weeks':
-        case 'week':
             return convertWeeksToDays(timeToElapse);
         default:
             return timeToElapse;
@@ -81,13 +79,9 @@ const calculateSevereImpact = (data) => {
 
     const infectionRate = Math.trunc(getNumberOfDays(periodType, timeToElapse) / 3);
 
-    severeImpact.infectionsByRequestedTime = Math.trunc(
-        severeImpact.currentlyInfected * (2 ** infectionRate)
-    );
+    severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * (2 ** infectionRate);
 
-    severeImpact.severeCasesByRequestedTime = Math.trunc(
-        severeImpact.infectionsByRequestedTime * 0.15
-    );
+    severeImpact.severeCasesByRequestedTime = severeImpact.infectionsByRequestedTime * 0.15;
 
     severeImpact.hospitalBedsByRequestedTime = calcHospitalSpace(
         totalHospitalBeds,
@@ -110,6 +104,7 @@ const calculateSevereImpact = (data) => {
 
     return severeImpact;
 };
+
 
 const covid19ImpactEstimator = (data) => {
     const impact = calculateImpact(data);

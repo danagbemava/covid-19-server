@@ -22,7 +22,7 @@ app.use((req, res, next) => {
             fs.writeFileSync(path.join(__dirname, 'log.txt'), "");
         }
 
-        const log = `${req.method}\t\t${req.path}\t\t${res.statusCode}\t\t${duration}ms`;
+        const log = `${start.getTime()}\t\ton-covid-19${req.path}\t\tdone in\t\t${duration * 1000}s`;
 
         if (res.statusCode === 200) {
             fs.appendFileSync(path.join(__dirname, 'log.txt'), log + '\n', 'utf8');
@@ -37,17 +37,7 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-    const info = `${req.method}\t\t${req.path}\t\t${res.statusCode}\t\t${res.elapsedTime}`;
 
-    console.log(info);
-
-    if (req.statusCode === 200) {
-        fs.writeFile(path.join(__dirname, 'log.txt'), info);
-    }
-
-    next();
-});
 
 app.use('/api/v1/on-covid-19', routes);
 
