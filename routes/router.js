@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
         console.log(typeof logData);
 
         // console.log(typeof (JSON.stringify(logData)));
-
+        res.setHeader('Content-Type', 'text/plain');
         res.send(logData);
     });
 
