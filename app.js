@@ -22,7 +22,7 @@ app.use((req, res, next) => {
             fs.writeFileSync(path.join(__dirname, 'log.txt'), "");
         }
 
-        const log = `${start.getTime()}\t\ton-covid-19${req.path}\t\tdone in\t\t${duration * 1000}s`;
+        const log = `${req.method}\t\t${req.path}\t\t${res.statusCode}\t\t${duration}ms`;
 
         if (res.statusCode === 200) {
             fs.appendFileSync(path.join(__dirname, 'log.txt'), log + '\n', 'utf8');
