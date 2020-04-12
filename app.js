@@ -23,7 +23,7 @@ app.use((req, res, next) => {
         }
 
         const log = `${req.method}\t\t${req.path}\t\t${res.statusCode}\t\t${duration}ms`;
-        console.log(`${res.header()}, ${req.url}`);
+        console.log(`${res.header('Content-Type')}, ${req.url}`);
 
         if (res.statusCode === 200) {
             fs.appendFileSync(path.join(__dirname, 'log.txt'), log + '\n', 'utf8');
